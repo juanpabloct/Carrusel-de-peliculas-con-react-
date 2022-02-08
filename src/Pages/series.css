@@ -1,0 +1,8 @@
+.series {
+  background-color: aquamarine;
+  display: flex;
+}
+.series > div {
+  border: solid 5px;
+  flex: 7 5 10px;
+}
