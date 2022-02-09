@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 import "./content.css";
 
@@ -9,18 +9,30 @@ async function ConsumirApi(api) {
 }
 
 export default function Content(props) {
-  const pelicula = props.pelicula;
-  const url = props.url;
+  const { pelicula, url } = props;
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [contador, setContador] = useState(0);
   useEffect(() => {
     const run = async () => {
-      const valores = await ConsumirApi(`${url}${pelicula}`);
+      setLoading(true);
+      const valores = await ConsumirApi(
+        `${url}${pelicula ? pelicula : "123123"}`
+      );
+      setLoading(false);
       setData(valores.Search);
     };
     run();
-  }, []);
-
+  }, [pelicula, url]);
+  if (loading) return <div>Cargando...</div>;
+  if (!loading && !data?.length) {
+    return (
+      <div className="resultados">
+        <h3>Busqueda: {pelicula}</h3>
+        {pelicula}
+      </div>
+    );
+  }
   return (
     <div className="c-content">
       <div className="carousel">
