@@ -1,6 +1,5 @@
 import Inicio from "./Pages/Home";
 import Series from "./Pages/Series";
-import Peliculas from "./Pages/Peliculas";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 //Importar Componentes
@@ -11,7 +10,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Inicio />} />
           <Route path="/series" element={<Series />} />
-          <Route path="/peliculas" element={<Peliculas />} />
         </Routes>
       </BrowserRouter>
     </>
