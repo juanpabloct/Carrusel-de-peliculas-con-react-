@@ -9,7 +9,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Inicio />} />
-          <Route path="/series" element={<Series />} />
+          <Route path="/serie" element={<Series />} />
         </Routes>
       </BrowserRouter>
     </>
